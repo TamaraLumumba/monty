@@ -1,4 +1,4 @@
-0x19. C - Stacks, Queues - LIFO, FIFO
+STACKS, QUEUES - LIFO, FIFO
 
 ABOUT 
 In this project, we were able to create a basic interpreter for Monty ByteCodes. The interpreter reads a file containing bytecode and carries out the corresponding bytecode instructions.
