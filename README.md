@@ -15,29 +15,45 @@ Files containing Monty byte codes usually have the .m extension. Most of the ind
 GENERAL KNOWLEDGE REQUIREMENTS
 
 LIFO and FIFO
+
 Stack Definition and Usage
-Queue Definition and Usage:
-Common Implementations:
-Common Use Cases:
-Proper Global Variable Use:
+
+Queue Definition and Usage
+
+Common Implementations
+
+Common Use Cases
+
+Proper Global Variable Use
+
 
 PROJECT GUIDELINES
 
 Allowed editors: vi, vim, emacs
+
 Files will be compiled on Ubuntu 20.04 LTS using gcc, using the options -Wall -Werror -Wextra -pedantic -std=c89
+
 Files should end with a new line
+
 A README.md file, at the root of the folder is mandatory
-Your code should use the Betty style.
-Use a maximum of one global variable.
-Only 5 functions per file.
-You are allowed to use the C standard library.
+
+Your code should use the Betty style
+
+Use a maximum of one global variable
+
+Only 5 functions per file
+
+You are allowed to use the C standard library
+
 The prototypes of all your functions should be included in your header file called monty.h
-Header files should be include guarded.
-Do the tasks in the order shown in the project.
+
+Header files should be include guarded
+
 
 DATA STRUCTURES
 
-Use the following data structures for this project. 
+Use the following data structures for this project.
+
 Don’t forget to include them in your header file.
 
 /**
