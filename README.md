@@ -4,9 +4,9 @@ ABOUT
 
 In this project, we were able to create a basic interpreter for Monty ByteCodes. The interpreter reads a file containing bytecode and carries out the corresponding bytecode instructions.
 
-THE MONTY LANGUAGE
+MONTY LANGUAGE
 
-Monty 0.98 is a scripting language that is first compiled into Monty byte codes (Just like Python). It relies on a unique stack, with specific instructions to manipulate it. The goal of this project is to create an interpreter for Monty ByteCodes files.
+Monty is a scripting language that is first compiled into Monty byte codes. It relies on a unique stack, with specific instructions to manipulate it.
 
 MONTY FILES
 
