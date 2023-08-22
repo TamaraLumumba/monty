@@ -27,6 +27,8 @@ Common Use Cases
 Proper Global Variable Use
 
 
+
+
 PROJECT GUIDELINES
 
 Allowed editors: vi, vim, emacs
@@ -48,6 +50,8 @@ You are allowed to use the C standard library
 The prototypes of all your functions should be included in your header file called monty.h
 
 Header files should be include guarded
+
+
 
 
 DATA STRUCTURES
