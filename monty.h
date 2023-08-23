@@ -37,3 +37,8 @@ typedef struct instruction_s
         char *opcode;
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+
+void initStack(Stack *stack);
+void freeStack(Stack *stack);
+void executeMontyInstruction(const char *instruction, Stack *stack);
+
