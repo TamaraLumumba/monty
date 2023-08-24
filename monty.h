@@ -8,6 +8,10 @@
 #include <syst/types.h>
 #include <fcntl.h>
 
+#define STACK 0
+#define QUEUE 1
+#define delimiters " \n\t\a\b"
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
