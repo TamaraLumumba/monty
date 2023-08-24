@@ -38,7 +38,8 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-void initStack(Stack *stack);
-void freeStack(Stack *stack);
-void executeMontyInstruction(const char *instruction, Stack *stack);
+void initStack(Stack_t **stack);
+void freeStack(Stack_t **stack);
+int check_list_mode(stack_t *stack);
+void execute_Monty(const char *instruction, Stack *stack);
 
