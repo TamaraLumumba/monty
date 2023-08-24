@@ -38,6 +38,8 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+extern ** inst_toks1
+
 void initStack(Stack_t **stack);
 void freeStack(Stack_t **stack);
 int check_list_mode(stack_t *stack);
