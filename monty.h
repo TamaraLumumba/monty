@@ -60,3 +60,9 @@ void releaseTokens(void)
 unsigned int countTokens(void)
 int isLineEmpty(char *line, char *delimiters)
 
+void monty_push1(stack_t **stack, unsigned int line_number)
+void monty_pall1(stack_t **stack, unsigned int line_number)
+void monty_pint1(stack_t **stack, unsigned int line_number)
+void monty_pop1(stack_t **stack, unsigned int line_number)
+void monty_swap1(stack_t **stack, unsigned int line_number)
+
