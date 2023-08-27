@@ -47,5 +47,16 @@ extern ** inst_toks1
 void initStack(Stack_t **stack);
 void freeStack(Stack_t **stack);
 int check_list_mode(stack_t *stack);
-void execute_Monty(const char *instruction, Stack *stack);
+void execute_monty(const char *instruction, Stack *stack);
+void set_error1(int error_code)
+char **tokenizeString(char *input, char *delimiters)
+int isDelimiter(char character, char *delimiters)
+int getWordLength(char *input, char *delimiters)
+int countWords(char *input, char *delimiters)
+char *getNextWord(char *input, char *delimiters)
+void (*get_op_function(char *opcode))(stack_t**, unsigned int)
+int execute_monty(FILE *file1)
+void releaseTokens(void)
+unsigned int countTokens(void)
+int isLineEmpty(char *line, char *delimiters)
 
