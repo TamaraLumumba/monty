@@ -15,27 +15,27 @@ void set_error1(int error_code)
 	char *exit_str = NULL;
 	char **new_toks = NULL;
 
-	toks_len = countTokens();
-	new_toks = malloc(sizeof(char *) * (toks_len + 2));
-	if (!inst_toks1)
+	tok_len = countTokens();
+	new_toks = malloc(sizeof(char *) * (tok_len + 2));
+	if (!op_toks1)
 	{
-		fprintf(stderr, "Error: malloc failed\n");
-		return (EXIT_FAILURE);
+		malloc_error();
+		return;
 	}
-	while (i < toks_len)
+	while (i < tok_len)
 	{
-		new_toks[i] = inst_toks1[i];
+		new_toks[i] = op_toks1[i];
 		i++;
 	}
 	exit_str = get_int(error_code);
 	if (!exit_str)
 	{
 		free(new_toks);
-		fprintf(stderr, "Error: malloc failed\n");
-		return (EXIT_FAILURE);
+		malloc_error();
+		return;
 	}
 	new_toks[i++] = exit_str;
 	new_toks[i] = NULL;
-	free(inst_toks1);
-	inst_toks1 = new_toks;
+	free(op_toks1);
+	op_toks1 = new_toks;
 }

@@ -1,4 +1,10 @@
+/**
+ * File: executemonty.c
+ * Auth: Tamara Lumumba
+ */
+
 #include "monty.h"
+#include <string.h>
 
 /**
  * get_op_function - Matches an opcode with its corresponding function.
@@ -7,32 +13,21 @@
  */
 void (*get_op_function(char *opcode))(stack_t**, unsigned int)
 {
-	instruction_t opst[] = {
-		{"push", f_push},
-		{"pall", f_pall},
-		{"pint", f_pint},
-		{"pop", f_pop},
-		{"swap", f_swap},
-		{"add", f_add},
-		{"nop", f_nop},
-		{"sub", f_sub},
-		{"div", f_div},
-		{"mul", f_mul},
-		{"mod", f_mod},
-		{"pchar", f_pchar},
-		{"pstr", f_pstr},
-		{"rotl", f_rotl},
-		{"rotr", f_rotr},
-		{"queue", f_queue},
-		{"stack", f_stack},
-		{NULL, NULL}
+	instruction_t op_funcs[] = {
+		{"push", monty_push1},
+		{"pall", monty_pall1},
+		{"pint", monty_pint1},
+		{"pop", monty pop1},
+		{"swap", monty_swap1},
+		{"add", monty_add1},
+		{"nop", monty_nop},
 	};
 	int i = 0;
 
-	while (opcode_functions[i].opcode != NULL)
+	while (op_funcs[i].opcode != NULL)
 	{
-		if (strcmp(opcode, opcode_functions[i].opcode) == 0)
-			return (opcode_functions[i].function);
+		if (strcmp(opcode, op_funcs[i].opcode) == 0)
+			return (op_funcs[i].function);
 		i++;
 	}
 
@@ -56,8 +51,8 @@ int execute_monty(FILE *file1)
 	while (getline(&line, &len, file1) != -1)
 	{
 		line_number++;
-		inst_toks1 = strtow(line, delimiters);
-		if (inst_toks1 == NULL)
+		op_toks1= tokenizeString(line, delimiters);
+		if (op_toks1 == NULL)
 		{
 			if (isLineEmpty(line, delimiters))
 				continue;
@@ -65,16 +60,16 @@ int execute_monty(FILE *file1)
 			fprintf(stderr, "Error: malloc failed\n");
 			return (EXIT_FAILURE);
 		}
-		else if (inst_toks1[0][0] == '#')
+		else if (op_toks1[0][0] == '#')
 		{
 			releaseTokens();
 			continue;
 		}
-			op_func = get_op_function(inst_toks1[0]);
+			op_func = get_op_function(op_toks1[0]);
 			if (op_func == NULL)
 			{
 				freeStack(&stack);
-				exit_status = unknown_op_error(inst_toks1[0], line_number);
+				exit_status = unknown_op_error(op_toks1[0], line_number);
 				releaseTokens();
 				break;
 			}
@@ -82,8 +77,8 @@ int execute_monty(FILE *file1)
 			op_func(&stack, line_number);
 			if (countTokens() != prev_tok_len)
 			{
-				if (inst_toks1 && inst_toks1[prev_tok_len])
-					exit_status = atoi(inst_toks1[prev_tok_len]);
+				if (op_toks1 && op_toks1[prev_tok_len])
+					exit_status = atoi(op_toks1[prev_tok_len]);
 				else
 					exit_status = EXIT_FAILURE
 						releaseTokens();

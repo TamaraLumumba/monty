@@ -4,6 +4,9 @@
  */
 
 #include "monty.h"
+#include <string.h>
+
+
 
 /**
  * initStack - Creates and initializes a new stack_t instance with initial
@@ -19,8 +22,7 @@ void initStack(stack_t **stack)
 
 	if (newStack == NULL)
 	{
-		fprintf(stderr, "Error: malloc failed\n");
-		return (EXIT_FAILURE);
+		return (malloc_error());
 	}
 
 	newStack->n = STACK;

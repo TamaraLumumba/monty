@@ -6,17 +6,24 @@
 #include "monty.h"
 #include <string.h>
 
+void releaseTokens(void);
+unsigned int countTokens(void);
+int isLineEmpty(char *line, char *delimiters);
+
 /**
  * releaseTokens - Deallocates memory for the global instruction token array.
  */
 void releaseTokens(void)
 {
-	if (inst_toks1 == NULL)
+	int i;
+
+	if (op_toks1 == NULL)
 		return;
 
-	for (char **tokenPtr = inst_toks1; *tokenPtr; tokenPtr++)
-		free(*tokenPtr);
-	free(inst_toks1);
+	for (i = 0; op_toks1[i]; i++)
+		free(op_toks1[i]);
+
+	free(op_toks1);
 }
 
 /**
@@ -30,7 +37,7 @@ unsigned int countTokens(void)
 
 	do {
 		tokensCount++;
-	} while (inst_toks1[tokensCount]);
+	} while (op_toks1[tokensCount]);
 
 	return (tokensCount);
 }

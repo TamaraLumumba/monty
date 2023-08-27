@@ -5,12 +5,12 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
-#include <syst/types.h>
 #include <fcntl.h>
 
 #define STACK 0
 #define QUEUE 1
 #define delimiters " \n\t\a\b"
+
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -42,27 +42,32 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-extern ** inst_toks1
+extern char ** op_toks1;
 
-void initStack(Stack_t **stack);
-void freeStack(Stack_t **stack);
+void initStack(stack_t **stack);
+void freeStack(stack_t **stack);
 int check_list_mode(stack_t *stack);
-void execute_monty(const char *instruction, Stack *stack);
-void set_error1(int error_code)
-char **tokenizeString(char *input, char *delimiters)
-int isDelimiter(char character, char *delimiters)
-int getWordLength(char *input, char *delimiters)
-int countWords(char *input, char *delimiters)
-char *getNextWord(char *input, char *delimiters)
-void (*get_op_function(char *opcode))(stack_t**, unsigned int)
-int execute_monty(FILE *file1)
-void releaseTokens(void)
-unsigned int countTokens(void)
-int isLineEmpty(char *line, char *delimiters)
+void set_error1(int error_code);
+void (*get_op_function(char *opcode))(stack_t**, unsigned int);
+int execute_monty(FILE *file1);
+void releaseTokens(void);
+unsigned int countTokens(void);
 
-void monty_push1(stack_t **stack, unsigned int line_number)
-void monty_pall1(stack_t **stack, unsigned int line_number)
-void monty_pint1(stack_t **stack, unsigned int line_number)
-void monty_pop1(stack_t **stack, unsigned int line_number)
-void monty_swap1(stack_t **stack, unsigned int line_number)
+void monty_push1(stack_t **stack, unsigned int line_number);
+void monty_pall1(stack_t **stack, unsigned int line_number);
+void monty_pint1(stack_t **stack, unsigned int line_number);
+void monty_pop1(stack_t **stack, unsigned int line_number);
+void monty_swap1(stack_t **stack, unsigned int line_number);
 
+int malloc_error(void);
+int unknown_op_error(char *opcode, unsigned int line_number);
+int f_open_error(char *filename);
+int unknown_op_error(char *opcode, unsigned int line_number);
+int no_int_error(unsigned int line_number);
+int pop_error(unsigned int line_number);
+int pint_error(unsigned int line_number);
+int short_stack_error(unsigned int line_number, char *op);
+int div_error(unsigned int line_number);
+int pchar_error(unsigned int line_number, char *message);
+
+#endif

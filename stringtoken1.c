@@ -5,6 +5,12 @@
 
 #include <stdlib.h>
 
+char **tokenizeString(char *input, char *delimiters)
+int isDelimiter(char character, char *delimiters)
+int getWordLength(char *input, char *delimiters)
+int countWords(char *input, char *delimiters)
+char *getNextWord(char *input, char *delimiters)
+
 /**
  * tokenizeString - Tokenizes a given input string into individual words
  *                  using provided delimiters.
